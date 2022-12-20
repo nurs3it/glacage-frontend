@@ -1,8 +1,13 @@
 {
   "name": "glacage",
   "version": "1.0.0",
-  "description": "Desc",
+  "description": "Glacage Bakery's Marketplace app",
+  "homepage": "https://github.com/nurs3it/glacage-frontend",
   "author": "Nurseiit Sharip",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nurs3it/glacage-frontend.git"
+  },
   "license": "MIT",
   "browserslist": [
     ">0.2%",
@@ -22,7 +27,7 @@
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
-    "pre-push": "npm run format"
+    "pre-push": ""
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

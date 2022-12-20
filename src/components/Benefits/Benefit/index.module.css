@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  align-items: center;
+  flex-direction: column !important;
+  margin: 32px 0 !important;
+}
+
+.icon {
+  border: 1px solid #63142c8c;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: 500 !important;
+  color: #63142c;
+  margin-top: 20px !important;
+  text-align: center;
+}

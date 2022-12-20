@@ -1,0 +1,12 @@
+.root {
+  width: 100%;
+  padding: 0 16px;
+}
+
+.title {
+  font-weight: bold !important;
+  text-align: center;
+  padding: 12px 0;
+  margin-bottom: 14px !important;
+  margin-top: 14px !important;
+}

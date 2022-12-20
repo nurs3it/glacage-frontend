@@ -1,0 +1,55 @@
+.root {
+  padding: 12px;
+}
+
+.wrapper {
+  height: 200px;
+  border-radius: 12px !important;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 2px 2px 12px 0 #0000000f;
+  cursor: pointer;
+}
+
+.wrapper:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.wrapper:hover .image {
+  transform: scale(1.1);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center center;
+  height: 200px;
+  width: 100%;
+  transition: 1s ease-out;
+}
+
+.action {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 40%;
+  z-index: 1;
+  padding: 0 12px;
+}
+
+.title {
+  font-weight: bold !important;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  cursor: pointer;
+}

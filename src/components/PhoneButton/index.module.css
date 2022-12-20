@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-left: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}

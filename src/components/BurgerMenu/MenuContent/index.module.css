@@ -1,0 +1,15 @@
+.root {
+  width: 100vw !important;
+  padding: 16px 0;
+}
+
+.close {
+  width: 100%;
+  display: flex;
+  padding: 0 16px;
+  justify-content: flex-end;
+}
+
+.container {
+  padding: 0 16px;
+}

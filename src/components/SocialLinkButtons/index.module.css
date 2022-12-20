@@ -1,0 +1,7 @@
+.root {
+  display: flex;
+}
+
+.link {
+  margin-right: 24px !important;
+}

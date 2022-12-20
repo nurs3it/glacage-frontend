@@ -1,0 +1,27 @@
+.root {
+  background: #63142c;
+  color: white;
+  padding: 16px 0 50px;
+  margin-top: 50px;
+}
+
+.wrapper {
+  padding: 0 16px;
+}
+
+.title {
+  margin-top: 18px !important;
+  margin-bottom: 18px !important;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+}
+
+.phoneText {
+  margin-left: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.root {
+  background: #f8f8f8;
+  border-radius: 12px;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  min-height: 200px;
+  height: 60vw;
+  max-height: 410px;
+  border-radius: 8px;
+}
+
+.aboutText {
+  padding: 8px;
+}

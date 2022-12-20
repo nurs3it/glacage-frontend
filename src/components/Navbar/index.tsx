@@ -19,7 +19,9 @@ const Navbar = () => {
 
   const { desktop } = useBreakpoints();
 
-  const goToHash = (hash) => {};
+  const goToHash = (hash) => {
+    window.location.href = `#${hash}`;
+  };
 
   return (
     <Grid

@@ -20,7 +20,7 @@ const Navbar = () => {
   const { desktop } = useBreakpoints();
 
   const goToHash = (hash) => {
-    window.location.href = `#${hash}`;
+    window.location.href = `/#${hash}`;
   };
 
   return (

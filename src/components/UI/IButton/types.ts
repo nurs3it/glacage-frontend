@@ -17,4 +17,5 @@ export interface ButtonProps {
     | "info"
     | "warning";
   loading?: boolean;
+  className?: string;
 }

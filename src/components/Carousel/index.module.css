@@ -1,0 +1,59 @@
+.root {
+}
+
+.active {
+  width: 100%;
+}
+
+.mActive {
+  height: 360px;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  max-height: 360px;
+  height: 30vw;
+  min-height: 200px;
+  transition: 0.2s linear;
+}
+
+.swiperImage {
+  object-fit: cover;
+  width: 100%;
+  max-height: 360px;
+  height: 360px;
+  min-height: 200px;
+  transition: 0.2s linear;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  transition: 0.2s linear;
+  height: 90px;
+}
+
+.listImage {
+  width: 84px;
+  min-width: 84px;
+  height: 87px;
+  margin-right: 12px;
+  border: 1.5px solid transparent;
+}
+
+.miniImage {
+  object-fit: cover;
+  width: 100%;
+  height: 84px;
+  min-height: 84px;
+  max-height: 84px;
+  transition: 0.2s linear;
+}
+
+.activeImage {
+  border: 1.5px solid #63142c;
+}

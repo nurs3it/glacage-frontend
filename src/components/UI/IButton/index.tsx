@@ -16,6 +16,7 @@ const IButton: FC<ButtonProps> = ({
   disabled,
   color = "primary",
   loading = false,
+  className,
 }) => {
   return (
     <Button
@@ -26,6 +27,7 @@ const IButton: FC<ButtonProps> = ({
       endIcon={endIcon}
       disabled={disabled}
       color={color}
+      className={className}
     >
       {loading ? <ILoading /> : children}
     </Button>

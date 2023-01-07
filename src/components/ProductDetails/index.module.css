@@ -1,0 +1,62 @@
+.root {
+  width: 100%;
+  display: flex;
+  padding: 16px 16px 0 16px;
+}
+
+.mRoot {
+  flex-direction: column;
+  padding: 0;
+}
+
+.gallery {
+  width: 40%;
+  position: relative;
+}
+
+.info {
+  width: 60%;
+  padding: 16px;
+}
+
+.fullWidth {
+  width: 100% !important;
+}
+
+.close {
+  position: absolute !important;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+}
+
+.title {
+  font-weight: bold !important;
+  line-height: 1rem !important;
+}
+
+.subtitle {
+  color: #636363;
+}
+
+.count {
+  line-height: 3rem !important;
+}
+
+.chip {
+  background: #e7edff !important;
+  font-size: 16px !important;
+  margin-bottom: 16px;
+}
+
+.description {
+}
+
+.price {
+  font-weight: bold !important;
+  line-height: 4rem !important;
+}
+
+.button {
+  padding: 10px 28px !important;
+}

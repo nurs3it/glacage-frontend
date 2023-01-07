@@ -43,6 +43,13 @@ const theme = createTheme({
         fontFamily,
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontFamily,
+        },
+      },
+    },
   },
 });
 

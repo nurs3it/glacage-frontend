@@ -24,7 +24,8 @@ import { useNavigate } from "react-router";
 
 const MenuContent: FC<Props> = ({ onClose }) => {
   const navigate = useNavigate();
-  const goTo = () => {
+  const goTo = (hash: string) => {
+    window.location.href = `/#${hash}`;
     onClose();
   };
 

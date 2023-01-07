@@ -3,3 +3,14 @@
   text-align: center;
   padding: 12px 24px;
 }
+
+.button {
+  padding: 12px 44px !important;
+  margin: 0 auto !important;
+}
+
+.action {
+  padding: 26px 16px 0 16px;
+  display: flex;
+  justify-content: center;
+}

@@ -8,6 +8,7 @@ import classes from "./index.module.css";
 import { useBreakpoints } from "hooks/useBreakpoints";
 
 import CartProduct from "components/Catalog/CartProduct";
+import IButton from "components/UI/IButton";
 
 const BasketPage = () => {
   const { mobile } = useBreakpoints();
@@ -22,6 +23,11 @@ const BasketPage = () => {
         <CartProduct />
         <CartProduct />
         <CartProduct isLast />
+        <div className={classes.action}>
+          <IButton className={classes.button} fullWidth={mobile}>
+            Отправить заказ
+          </IButton>
+        </div>
       </IContainer>
     </AppLayout>
   );

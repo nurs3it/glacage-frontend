@@ -1,0 +1,63 @@
+.root {
+  padding: 12px;
+  display: flex;
+}
+
+.isLast {
+  border-bottom: 1px solid #dacfbe;
+}
+
+.imageWrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center center;
+  width: 90px;
+  height: 90px;
+}
+
+.content {
+  display: flex;
+  flex: 1 auto;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-left: 16px;
+  position: relative;
+}
+
+.delete {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+}
+
+.price {
+  font-weight: bold !important;
+  color: #636363;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtitle {
+  color: #636363;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+.title {
+  line-height: 1.5rem;
+}
+
+.allPrice {
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+}

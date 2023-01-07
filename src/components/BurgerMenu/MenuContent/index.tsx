@@ -20,8 +20,16 @@ import IList, { Item } from "components/UI/IList";
 import PhoneButton from "components/PhoneButton";
 import SocialLinkButtons from "components/SocialLinkButtons";
 
+import { useNavigate } from "react-router";
+
 const MenuContent: FC<Props> = ({ onClose }) => {
-  const goTo = (hash) => {
+  const navigate = useNavigate();
+  const goTo = () => {
+    onClose();
+  };
+
+  const goToBasket = () => {
+    navigate("/basket");
     onClose();
   };
 
@@ -34,7 +42,7 @@ const MenuContent: FC<Props> = ({ onClose }) => {
       </Grid>
 
       <IList>
-        <Item icon={Cart} text="Корзина" />
+        <Item onClick={goToBasket} icon={Cart} text="Корзина" />
         <Item icon={Carousel} text="Каталог" />
       </IList>
 

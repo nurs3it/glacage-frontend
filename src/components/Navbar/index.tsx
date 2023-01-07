@@ -27,6 +27,8 @@ const Navbar: FC<Props> = ({ pageTitle = "" }) => {
 
   const goBack = () => navigate(-1);
 
+  const goToBasket = () => navigate("/basket");
+
   const goToHash = (hash) => {
     window.location.href = `/#${hash}`;
   };
@@ -89,7 +91,7 @@ const Navbar: FC<Props> = ({ pageTitle = "" }) => {
         </Grid>
       )}
       <Grid item alignItems="center">
-        <IconButton>
+        <IconButton onClick={goToBasket}>
           <IIcon icon={Cart} />
         </IconButton>
         {!desktop && <BurgerMenu />}

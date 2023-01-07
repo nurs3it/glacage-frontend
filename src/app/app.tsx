@@ -5,6 +5,7 @@ const MainPage = lazy(() => import("pages/main"));
 const CatalogPage = lazy(() => import("pages/catalog"));
 const CatalogDetailsPage = lazy(() => import("pages/catalog/details"));
 const ProductPage = lazy(() => import("pages/product"));
+const BasketPage = lazy(() => import("pages/basket"));
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
       <Route path="/catalog/:id" element={<CatalogDetailsPage />} />
       <Route path="/product" element={<Navigate to="/catalog" />} />
       <Route path="/product/:id" element={<ProductPage />} />
+      <Route path="/basket" element={<BasketPage />} />
     </Routes>
   );
 };

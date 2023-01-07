@@ -1,6 +1,7 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-const fontFamily = "Montserrat, Roboto, Helvetica, sans-serif !important";
+export const fontFamily =
+  "Montserrat, Roboto, Helvetica, sans-serif !important";
 
 const theme = createTheme({
   breakpoints: {

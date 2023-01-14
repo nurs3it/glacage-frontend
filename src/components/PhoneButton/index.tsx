@@ -6,14 +6,22 @@ import WhatsApp from "assets/svg/whatsApp.svg";
 
 import classes from "./index.module.css";
 
+import { useContacts } from "hooks/useContacts";
+
+import { openWhatsApp } from "src/utils";
+
 const PhoneButton = () => {
+  const { number } = useContacts();
+
+  const handleOpen = () => openWhatsApp(number);
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={handleOpen}>
       <IconButton>
         <IIcon icon={WhatsApp} />
       </IconButton>
       <Typography className={classes.text} variant="body2">
-        (704) 555-0127
+        {number}
       </Typography>
     </div>
   );

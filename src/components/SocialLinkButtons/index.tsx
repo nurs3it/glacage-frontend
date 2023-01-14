@@ -13,18 +13,41 @@ import Twitter2 from "assets/svg/twitterFill.svg";
 
 import { FC } from "react";
 
+import { useContacts } from "hooks/useContacts";
+
+import { openLink } from "src/utils";
+
 const SocialLinkButtons: FC<{ dark?: boolean }> = ({ dark }) => {
+  const { instagram, facebook, twitter } = useContacts();
+
+  const handleOpenLink = (link: string) => openLink(link);
+
   return (
     <div className={classes.root}>
-      <IconButton className={classes.link}>
-        <IIcon icon={dark ? Facebook2 : Facebook} />
-      </IconButton>
-      <IconButton className={classes.link}>
-        <IIcon icon={dark ? Instagram2 : Instagram} />
-      </IconButton>
-      <IconButton className={classes.link}>
-        <IIcon icon={dark ? Twitter2 : Twitter} />
-      </IconButton>
+      {facebook && (
+        <IconButton
+          className={classes.link}
+          onClick={() => handleOpenLink(facebook)}
+        >
+          <IIcon icon={dark ? Facebook2 : Facebook} />
+        </IconButton>
+      )}
+      {instagram && (
+        <IconButton
+          className={classes.link}
+          onClick={() => handleOpenLink(instagram)}
+        >
+          <IIcon icon={dark ? Instagram2 : Instagram} />
+        </IconButton>
+      )}
+      {twitter && (
+        <IconButton
+          className={classes.link}
+          onClick={() => handleOpenLink(twitter)}
+        >
+          <IIcon icon={dark ? Twitter2 : Twitter} />
+        </IconButton>
+      )}
     </div>
   );
 };

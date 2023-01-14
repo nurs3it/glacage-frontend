@@ -10,6 +10,8 @@ export default defineConfig((configEnv) => {
     resolve: {
       alias: {
         app: resolve(__dirname, "src", "app"),
+        src: resolve(__dirname, "src"),
+        api: resolve(__dirname, "src", "api"),
         components: resolve(__dirname, "src", "components"),
         hooks: resolve(__dirname, "src", "hooks"),
         layouts: resolve(__dirname, "src", "layouts"),
@@ -18,6 +20,7 @@ export default defineConfig((configEnv) => {
         pages: resolve(__dirname, "src", "pages"),
         assets: resolve(__dirname, "src", "assets"),
         store: resolve(__dirname, "src", "store"),
+        utils: resolve(__dirname, "src", "utils"),
       },
     },
     css: {

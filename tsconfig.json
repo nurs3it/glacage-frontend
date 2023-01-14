@@ -18,6 +18,8 @@
     "jsx": "react-jsx",
     "paths": {
       "app/*": ["src/app/*"],
+      "src/*": ["src/*"],
+      "api/*": ["src/api/*"],
       "components/*": ["src/components/*"],
       "hooks/*": ["src/hooks/*"],
       "layouts/*": ["src/layouts/*"],
@@ -25,7 +27,8 @@
       "types/*": ["src/types/*"],
       "pages/*": ["src/pages/*"],
       "assets/*": ["src/assets/*"],
-      "store/*": ["src/store/*"]
+      "store/*": ["src/store/*"],
+      "utils/*": ["src/utils/*"]
     }
   },
   "include": ["./src"]

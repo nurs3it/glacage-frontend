@@ -1,21 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-import { AboutBody } from "src/types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ContactsBody } from "types/body";
 
 export const aboutSlice = createSlice({
   name: "about",
   initialState: {
-    about: {
-      number: "87024168761",
-    } as AboutBody,
+    contacts: {} as ContactsBody,
   },
   reducers: {
-    add: (state, action) => {
-      state.about = action.payload;
+    setContacts: (state, action: PayloadAction<ContactsBody>) => {
+      state.contacts = action.payload;
     },
   },
 });
 
-export const { add } = aboutSlice.actions;
+export const { setContacts } = aboutSlice.actions;
 
 export default aboutSlice.reducer;

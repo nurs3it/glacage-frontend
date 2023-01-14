@@ -5,6 +5,7 @@
 
 .image {
   object-fit: cover;
+  object-position: center center;
   width: 100%;
   min-height: 200px;
   height: 60vw;
@@ -14,4 +15,8 @@
 
 .aboutText {
   padding: 8px;
+}
+
+.skeletonText {
+  padding-bottom: 0 !important;
 }

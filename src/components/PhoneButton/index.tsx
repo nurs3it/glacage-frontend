@@ -13,7 +13,7 @@ import { openWhatsApp } from "src/utils";
 const PhoneButton = () => {
   const { number } = useContacts();
 
-  const handleOpen = () => openWhatsApp(number);
+  const handleOpen = () => openWhatsApp(number || "+7 (704) 555-0127");
 
   return (
     <div className={classes.root} onClick={handleOpen}>
@@ -21,7 +21,7 @@ const PhoneButton = () => {
         <IIcon icon={WhatsApp} />
       </IconButton>
       <Typography className={classes.text} variant="body2">
-        {number}
+        {number || "+7 (704) 555-0127"}
       </Typography>
     </div>
   );

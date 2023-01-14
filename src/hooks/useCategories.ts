@@ -12,7 +12,7 @@ const useCategories = (autoLoad: boolean) => {
 
   const parseData = (data) => dispatch(setCategories(data));
 
-  const { runAsync, loading } = useRequest(getCategories, {
+  const { runAsync, loading, error } = useRequest(getCategories, {
     manual: true,
     onSuccess: (data) => {
       parseData(data.data.data);
@@ -32,6 +32,7 @@ const useCategories = (autoLoad: boolean) => {
   return {
     categories,
     loading,
+    error,
   };
 };
 

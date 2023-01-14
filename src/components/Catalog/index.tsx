@@ -5,11 +5,11 @@ import Card, { CardSkeleton } from "./Card";
 import { useCategories } from "hooks/useCategories";
 
 const Catalog = () => {
-  const { categories, loading } = useCategories(true);
+  const { categories, loading, error } = useCategories(true);
 
   return (
     <Grid container>
-      {loading ? (
+      {loading || error ? (
         <>
           <CardSkeleton />
           <CardSkeleton />

@@ -1,29 +1,57 @@
 import AppLayout from "layouts/app";
 import IContainer from "layouts/container";
 
-import { Grid, Typography } from "@mui/material";
+import { Grid, Skeleton, Typography } from "@mui/material";
 
 import classes from "./index.module.css";
 
 import { useBreakpoints } from "hooks/useBreakpoints";
+import { useProducts } from "hooks/useProducts";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import Product from "components/Catalog/Product";
+import Product, { ProductSkeleton } from "components/Catalog/Product";
 
 const DetailsPage = () => {
   const { mobile } = useBreakpoints();
+  const { id } = useParams();
+
+  const { products, getByCategoryId, loading, category, error } = useProducts();
+
+  useEffect(() => {
+    getByCategoryId(id);
+  }, [getByCategoryId, id]);
+
   return (
     <AppLayout pageTitle="Эклеры">
       <IContainer>
-        {!mobile && (
-          <Typography className={classes.title} variant="h4">
-            Тарталетки
-          </Typography>
-        )}
+        {!mobile &&
+          (category?.data?.attributes?.name ? (
+            <Typography className={classes.title} variant="h4">
+              {category?.data?.attributes?.name || ""}
+            </Typography>
+          ) : (
+            <Skeleton animation="wave" sx={{ margin: "0 auto" }} width="40%">
+              <Typography variant="h3">.</Typography>
+            </Skeleton>
+          ))}
         <Grid container>
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {loading || error ? (
+            <>
+              <ProductSkeleton />
+              <ProductSkeleton />
+              <ProductSkeleton />
+              <ProductSkeleton />
+              <ProductSkeleton />
+              <ProductSkeleton />
+            </>
+          ) : (
+            <>
+              {products.map((p) => (
+                <Product key={p.id} />
+              ))}
+            </>
+          )}
         </Grid>
       </IContainer>
     </AppLayout>

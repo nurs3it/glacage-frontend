@@ -26,7 +26,7 @@ const About = () => {
     );
   };
 
-  const { runAsync, loading } = useRequest(getAbout, {
+  const { runAsync, loading, error } = useRequest(getAbout, {
     manual: true,
     onSuccess: (result) => {
       parseData(result.data.data.attributes);
@@ -40,7 +40,7 @@ const About = () => {
   return (
     <Grid container className={classes.root} spacing={1}>
       <Grid sx={{ padding: "8px" }} item xs={12} md={6}>
-        {loading || !aboutImage ? (
+        {loading || !aboutImage || error ? (
           <Skeleton
             variant="rectangular"
             width="100%"
@@ -51,7 +51,7 @@ const About = () => {
         )}
       </Grid>
       <Grid sx={{ padding: "8px" }} item xs={12} md={6}>
-        {loading ? (
+        {loading || error ? (
           <>
             <Skeleton width="100%">
               <Typography className={classes.skeletonText}>.</Typography>

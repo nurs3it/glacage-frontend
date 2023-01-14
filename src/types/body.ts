@@ -36,6 +36,15 @@ export interface AboutBody extends Dates {
   background: Response<PhotoBody>;
 }
 
+export interface Product extends Dates {
+  name: string;
+  price: number;
+  count: number;
+  description: string;
+  images: ArrayResponse<PhotoBody[]>;
+  category: Response<ResponseData<Category>>;
+}
+
 export interface ContactsBody extends Dates {
   number: string;
   instagram: string;

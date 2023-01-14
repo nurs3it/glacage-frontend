@@ -1,4 +1,4 @@
-import { Grid, IconButton, Typography } from "@mui/material";
+import { Grid, IconButton, Skeleton, Typography } from "@mui/material";
 
 import classes from "./index.module.css";
 
@@ -43,6 +43,35 @@ const Product = () => {
           <IconButton size="small">
             <IIcon icon={Add} />
           </IconButton>
+        </div>
+      </div>
+    </Grid>
+  );
+};
+
+export const ProductSkeleton = () => {
+  return (
+    <Grid className={classes.root} item xs={6} md={4} sm={6}>
+      <div className={classes.wrapper}>
+        <div className={classes.imageWrapper}>
+          <Skeleton
+            sx={{ height: "100%", width: "100%" }}
+            animation="wave"
+            variant="rectangular"
+          />
+        </div>
+        <div className={classes.info}>
+          <Skeleton animation="wave" width="50%">
+            <Typography variant="h6">.</Typography>
+          </Skeleton>
+          <Skeleton animation="wave" width="40%">
+            <Typography variant="subtitle1">.</Typography>
+          </Skeleton>
+        </div>
+        <div className={classes.action}>
+          <Skeleton animation="wave" width="30%">
+            <Typography variant="h6">.</Typography>
+          </Skeleton>
         </div>
       </div>
     </Grid>

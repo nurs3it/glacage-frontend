@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 
 import { AboutBody } from "types/body";
 
+import ReactMarkdown from "react-markdown";
+
 const About = () => {
   const [data, setData] = useState({} as AboutBody);
   const [aboutImage, setAboutImage] = useState("");
@@ -65,8 +67,8 @@ const About = () => {
             </Skeleton>
           </>
         ) : (
-          <Typography className={classes.aboutText} variant="body2">
-            {data.about || ""}
+          <Typography>
+            <ReactMarkdown>{data.about || ""}</ReactMarkdown>
           </Typography>
         )}
       </Grid>

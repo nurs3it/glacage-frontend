@@ -17,7 +17,7 @@ const Card: FC<Props> = ({ category, id }) => {
       <div className={classes.wrapper} onClick={handleClickCatalog}>
         <img
           className={classes.image}
-          src={`${BASE_URL}${category.background.data.attributes.url}`}
+          src={`${BASE_URL}${category.background.data.attributes.formats.thumbnail.url}`}
           alt="cake"
         />
         <div className={classes.action}>

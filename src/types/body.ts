@@ -80,5 +80,6 @@ export interface Category extends Dates {
   show: boolean;
   description: string;
   price: number;
-  images: ArrayResponse<PhotoBody>;
+  background: Response<PhotoBody>;
+  images?: ArrayResponse<PhotoBody>;
 }

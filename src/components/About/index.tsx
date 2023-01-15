@@ -22,7 +22,8 @@ const About = () => {
   const parseData = (data: AboutBody) => {
     setData(data as AboutBody);
     setAboutImage(
-      `${BASE_URL}${data.background.data.attributes.url}` || AboutPhoto
+      `${BASE_URL}${data.background.data.attributes.formats.thumbnail.url}` ||
+        AboutPhoto
     );
   };
 

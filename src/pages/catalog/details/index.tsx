@@ -23,7 +23,7 @@ const DetailsPage = () => {
   }, [getByCategoryId, id]);
 
   return (
-    <AppLayout pageTitle="Эклеры">
+    <AppLayout pageTitle={category?.data?.attributes?.name || ""}>
       <IContainer>
         {!mobile &&
           (category?.data?.attributes?.name ? (
@@ -48,7 +48,7 @@ const DetailsPage = () => {
           ) : (
             <>
               {products.map((p) => (
-                <Product key={p.id} />
+                <Product key={p.id} product={p.attributes} />
               ))}
             </>
           )}

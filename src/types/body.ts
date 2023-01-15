@@ -52,13 +52,33 @@ export interface ContactsBody extends Dates {
   twitter: string;
 }
 
+export interface FormatData {
+  ext: string;
+  hash: string;
+  height: number;
+  mime: string;
+  name: string;
+  path: string;
+  size: number;
+  url: string;
+  width: number;
+}
+
+export interface PhotoFormats {
+  small: FormatData;
+  medium: FormatData;
+  thumbnail: FormatData;
+}
+
 export interface PhotoBody {
   url: string;
+  formats: PhotoFormats;
 }
 
 export interface Category extends Dates {
   name: string;
   show: boolean;
   description: string;
-  background: Response<PhotoBody>;
+  price: number;
+  images: ArrayResponse<PhotoBody>;
 }

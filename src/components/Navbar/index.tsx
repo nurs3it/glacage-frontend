@@ -4,9 +4,9 @@ import Logo from "assets/svg/inlineLogo.svg";
 import Cart from "assets/svg/shoppingCart.svg";
 import ArrowLeft from "assets/svg/arrowLeft.svg";
 
-import { Menu } from "../../constants";
+import { Menu } from "src/constants";
 
-import { IconButton, Typography, Grid } from "@mui/material";
+import { Grid, IconButton, Typography, Skeleton } from "@mui/material";
 
 import { useNavigate } from "react-router";
 import { useBreakpoints } from "hooks/useBreakpoints";
@@ -47,7 +47,13 @@ const Navbar: FC<Props> = ({ pageTitle = "" }) => {
         <IconButton onClick={goBack}>
           <IIcon size={18} icon={ArrowLeft} />
         </IconButton>
-        <Typography variant="subtitle2">{pageTitle}</Typography>
+        {pageTitle === "" ? (
+          <Skeleton animation="wave" sx={{ margin: "0 auto" }} width="40%">
+            <Typography variant="subtitle2">.</Typography>
+          </Skeleton>
+        ) : (
+          <Typography variant="subtitle2">{pageTitle}</Typography>
+        )}
         <BurgerMenu />
       </Grid>
     );

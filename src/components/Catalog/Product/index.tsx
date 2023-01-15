@@ -6,10 +6,14 @@ import ProductImage from "assets/image/product.png";
 import Add from "assets/svg/addFilled.svg";
 
 import IIcon from "components/UI/IIcon";
+import { Props } from "components/Catalog/Product/types";
 
 import { useNavigate } from "react-router";
 
-const Product = () => {
+import { FC } from "react";
+import { BASE_URL } from "src/api";
+
+const Product: FC<Props> = ({ product }) => {
   const navigate = useNavigate();
 
   const handleClickToProduct = () => {
@@ -24,21 +28,24 @@ const Product = () => {
             draggable={false}
             className={classes.image}
             width={100}
-            src={ProductImage}
+            src={
+              `${BASE_URL}${product.images.data[0].attributes.formats.thumbnail.url}` ||
+              ProductImage
+            }
             alt="product image"
           />
         </div>
         <div className={classes.info}>
           <Typography className={classes.title} variant="h6">
-            Эклеры
+            {product.name}
           </Typography>
           <Typography className={classes.subtitle} variant="subtitle1">
-            Муссовое пирожное
+            {product.description}
           </Typography>
         </div>
         <div className={classes.action}>
           <Typography className={classes.price} variant="h6">
-            0000₸
+            {product.price}₸
           </Typography>
           <IconButton size="small">
             <IIcon icon={Add} />

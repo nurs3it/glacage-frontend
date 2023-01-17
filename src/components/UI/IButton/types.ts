@@ -18,4 +18,5 @@ export interface ButtonProps {
     | "warning";
   loading?: boolean;
   className?: string;
+  onClick?: () => void;
 }

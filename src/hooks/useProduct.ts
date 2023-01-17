@@ -5,6 +5,7 @@ import { useCallback, useEffect } from "react";
 import { getProductById } from "api/products";
 
 import { setProduct } from "store/products.store";
+
 import { Product, ResponseData } from "types/body";
 
 const useProduct = (id: string) => {

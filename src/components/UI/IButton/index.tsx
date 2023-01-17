@@ -17,9 +17,11 @@ const IButton: FC<ButtonProps> = ({
   color = "primary",
   loading = false,
   className,
+  onClick,
 }) => {
   return (
     <Button
+      onClick={onClick}
       fullWidth={fullWidth}
       variant={variant}
       size={size}

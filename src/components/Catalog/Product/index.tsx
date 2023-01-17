@@ -10,20 +10,35 @@ import ProgressiveImage from "components/UI/ProgressiveImage";
 import { Props } from "components/Catalog/Product/types";
 
 import { useNavigate } from "react-router";
+import { useCart } from "hooks/useCart";
 
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 const Product: FC<Props> = ({ product, id }) => {
   const navigate = useNavigate();
+  const { cart, addProduct } = useCart();
+
+  const [hasProductInCart, setHasProductInCart] = useState<boolean>(false);
 
   const handleClickToProduct = () => {
     navigate(`/product/${id}`);
   };
 
+  const addToCart = () => {
+    addProduct({
+      id,
+      stock: product,
+    });
+  };
+
+  useEffect(() => {
+    setHasProductInCart(cart.some((e) => e.id === Number(id)));
+  }, [cart, id]);
+
   return (
     <Grid className={classes.root} item xs={6} md={4} sm={6}>
-      <div className={classes.wrapper} onClick={handleClickToProduct}>
-        <div className={classes.imageWrapper}>
+      <div className={classes.wrapper}>
+        <div className={classes.imageWrapper} onClick={handleClickToProduct}>
           <ProgressiveImage
             className={classes.image}
             image={product.images.data[0]}
@@ -41,9 +56,11 @@ const Product: FC<Props> = ({ product, id }) => {
           <Typography className={classes.price} variant="h6">
             {product.price}₸
           </Typography>
-          <IconButton size="small">
-            <IIcon icon={Add} />
-          </IconButton>
+          {!hasProductInCart && (
+            <IconButton onClick={addToCart} size="small">
+              <IIcon icon={Add} />
+            </IconButton>
+          )}
         </div>
       </div>
     </Grid>

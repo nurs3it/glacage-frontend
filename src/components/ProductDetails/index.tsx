@@ -1,7 +1,11 @@
 import classes from "./index.module.css";
 
+import { useEffect, useMemo, useState } from "react";
 import { useBreakpoints } from "hooks/useBreakpoints";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router-dom";
+import { useProduct } from "hooks/useProduct";
+import { useCart } from "hooks/useCart";
 
 import Carousel from "components/Carousel";
 import IIcon from "components/UI/IIcon";
@@ -11,18 +15,17 @@ import { Chip, IconButton, Skeleton, Typography } from "@mui/material";
 
 import Close from "assets/svg/close.svg";
 import Shop from "assets/svg/shoppingCartWhite.svg";
-import { useParams } from "react-router-dom";
-import { useProduct } from "hooks/useProduct";
-import { useMemo } from "react";
+
 import { BASE_URL } from "src/api";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { mobile } = useBreakpoints();
-
   const { id } = useParams();
-
+  const { cart, addProduct } = useCart();
   const { product, loading } = useProduct(id);
+
+  const [hasProductInCart, setHasProductInCart] = useState<boolean>(false);
 
   const carouselImages = useMemo(() => {
     return (
@@ -35,6 +38,18 @@ const ProductDetails = () => {
   const handleToBack = () => {
     navigate(-1);
   };
+
+  const addToCart = () => {
+    addProduct(product);
+  };
+
+  const goToCart = () => {
+    navigate("/basket");
+  };
+
+  useEffect(() => {
+    setHasProductInCart(cart.some((e) => e.id === Number(id)));
+  }, [cart, id]);
 
   if (loading) return <ProductDetailsSkeleton />;
 
@@ -69,13 +84,25 @@ const ProductDetails = () => {
         <Typography className={classes.price} variant="h6">
           {product.attributes?.price || 0}₸
         </Typography>
-        <IButton
-          className={classes.button}
-          fullWidth={mobile}
-          startIcon={<IIcon icon={Shop} />}
-        >
-          Добавить в корзину
-        </IButton>
+        {!hasProductInCart ? (
+          <IButton
+            onClick={addToCart}
+            className={classes.button}
+            fullWidth={mobile}
+            startIcon={<IIcon icon={Shop} />}
+          >
+            Добавить в корзину
+          </IButton>
+        ) : (
+          <IButton
+            variant="outlined"
+            onClick={goToCart}
+            className={classes.button}
+            fullWidth={mobile}
+          >
+            Перейти в корзину
+          </IButton>
+        )}
       </div>
     </div>
   );

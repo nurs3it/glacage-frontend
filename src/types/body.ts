@@ -45,6 +45,10 @@ export interface Product extends Dates {
   category: Response<ResponseData<Category>>;
 }
 
+export interface ProductInCart extends Product {
+  count: number;
+}
+
 export interface ContactsBody extends Dates {
   number: string;
   instagram: string;

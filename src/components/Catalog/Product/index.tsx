@@ -2,37 +2,31 @@ import { Grid, IconButton, Skeleton, Typography } from "@mui/material";
 
 import classes from "./index.module.css";
 
-import ProductImage from "assets/image/product.png";
 import Add from "assets/svg/addFilled.svg";
 
 import IIcon from "components/UI/IIcon";
+import ProgressiveImage from "components/UI/ProgressiveImage";
+
 import { Props } from "components/Catalog/Product/types";
 
 import { useNavigate } from "react-router";
 
 import { FC } from "react";
-import { BASE_URL } from "src/api";
 
-const Product: FC<Props> = ({ product }) => {
+const Product: FC<Props> = ({ product, id }) => {
   const navigate = useNavigate();
 
   const handleClickToProduct = () => {
-    navigate("/product/1");
+    navigate(`/product/${id}`);
   };
 
   return (
     <Grid className={classes.root} item xs={6} md={4} sm={6}>
       <div className={classes.wrapper} onClick={handleClickToProduct}>
         <div className={classes.imageWrapper}>
-          <img
-            draggable={false}
+          <ProgressiveImage
             className={classes.image}
-            width={100}
-            src={
-              `${BASE_URL}${product.images.data[0].attributes.formats.thumbnail.url}` ||
-              ProductImage
-            }
-            alt="product image"
+            image={product.images.data[0]}
           />
         </div>
         <div className={classes.info}>

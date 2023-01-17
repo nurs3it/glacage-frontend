@@ -6,8 +6,7 @@ import { useNavigate } from "react-router";
 import { FC } from "react";
 
 import { Props } from "components/Catalog/Card/types";
-
-import { BASE_URL } from "src/api";
+import ProgressiveImage from "components/UI/ProgressiveImage";
 
 const Card: FC<Props> = ({ category, id }) => {
   const navigate = useNavigate();
@@ -15,10 +14,9 @@ const Card: FC<Props> = ({ category, id }) => {
   return (
     <Grid className={classes.root} item xs={12} md={4} sm={6}>
       <div className={classes.wrapper} onClick={handleClickCatalog}>
-        <img
+        <ProgressiveImage
           className={classes.image}
-          src={`${BASE_URL}${category.background.data.attributes.formats.thumbnail.url}`}
-          alt="cake"
+          image={category.background.data}
         />
         <div className={classes.action}>
           <Typography variant="h6" className={classes.title}>

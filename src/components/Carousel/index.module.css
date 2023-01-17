@@ -27,6 +27,10 @@
   transition: 0.2s linear;
 }
 
+.skeletonSwiperImage {
+  height: 30vh;
+}
+
 .list {
   display: flex;
   flex-direction: row;

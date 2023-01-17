@@ -6,10 +6,14 @@ export const productsSlice = createSlice({
   initialState: {
     products: [] as ResponseData<Product>[],
     category: {} as Response<ResponseData<Category>>,
+    product: {} as ResponseData<Product>,
   },
   reducers: {
     setProducts: (state, action: PayloadAction<ResponseData<Product>[]>) => {
       state.products = action.payload;
+    },
+    setProduct: (state, action: PayloadAction<ResponseData<Product>>) => {
+      state.product = action.payload;
     },
     setCategory: (
       state,
@@ -20,6 +24,6 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { setProducts, setCategory } = productsSlice.actions;
+export const { setProducts, setCategory, setProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -9,6 +9,8 @@ import { useBreakpoints } from "hooks/useBreakpoints";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
+import { Skeleton } from "@mui/material";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -22,7 +24,7 @@ const Carousel: FC<Props> = ({ images }) => {
   };
 
   useEffect(() => {
-    setActiveImage(images[0]);
+    setActiveImage(images?.[0]);
   }, [images]);
 
   return (
@@ -36,34 +38,15 @@ const Carousel: FC<Props> = ({ images }) => {
           />
         ) : (
           <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-            <SwiperSlide>
-              <img
-                className={`${classes.swiperImage}`}
-                src={activeImage}
-                alt="active image"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                className={`${classes.swiperImage}`}
-                src={activeImage}
-                alt="active image"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                className={`${classes.swiperImage}`}
-                src={activeImage}
-                alt="active image"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                className={`${classes.swiperImage}`}
-                src={activeImage}
-                alt="active image"
-              />
-            </SwiperSlide>
+            {images.map((i) => (
+              <SwiperSlide key={i}>
+                <img
+                  className={`${classes.swiperImage}`}
+                  src={i}
+                  alt="active image"
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
         )}
       </div>
@@ -77,7 +60,15 @@ const Carousel: FC<Props> = ({ images }) => {
               }`}
               onClick={() => handleImageClick(i)}
             >
-              <img className={classes.miniImage} src={i} alt={i} />
+              {!i ? (
+                <Skeleton
+                  width="100%"
+                  height="100%"
+                  className={classes.miniImage}
+                />
+              ) : (
+                <img className={classes.miniImage} src={i} alt={i} />
+              )}
             </div>
           ))}
         </div>

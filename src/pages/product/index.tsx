@@ -2,6 +2,7 @@ import AppLayout from "layouts/app";
 import IContainer from "layouts/container";
 
 import ProductDetails from "components/ProductDetails";
+
 import { useBreakpoints } from "hooks/useBreakpoints";
 
 const ProductPage = () => {

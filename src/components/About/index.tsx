@@ -15,6 +15,8 @@ import { AboutBody } from "types/body";
 
 import ReactMarkdown from "react-markdown";
 
+import ProgressiveImage from "components/UI/ProgressiveImage";
+
 const About = () => {
   const [data, setData] = useState({} as AboutBody);
   const [aboutImage, setAboutImage] = useState("");
@@ -48,7 +50,10 @@ const About = () => {
             className={classes.image}
           />
         ) : (
-          <img className={classes.image} src={aboutImage} alt="about" />
+          <ProgressiveImage
+            className={classes.image}
+            image={data.background.data}
+          />
         )}
       </Grid>
       <Grid sx={{ padding: "8px" }} item xs={12} md={6}>

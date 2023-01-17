@@ -48,7 +48,7 @@ const DetailsPage = () => {
           ) : (
             <>
               {products.map((p) => (
-                <Product key={p.id} product={p.attributes} />
+                <Product key={p.id} id={p.id} product={p.attributes} />
               ))}
             </>
           )}

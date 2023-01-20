@@ -1,17 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect } from "react";
 
-import { setCart } from "store/cart.store";
+import { setCart, setTotalPrice } from "store/cart.store";
 
 const KEY = "cart";
 
 const useCart = () => {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state["cart"]);
+
+  const { cart, totalPrice } = useSelector((state) => state["cart"]);
+
+  const getTotalPrice = (array) => {
+    return array.reduce((a, b) => {
+      return a + (b.stock ? b.stock.price : b.attributes.price) * b.count;
+    }, 0);
+  };
 
   const setToStorage = (array) => {
     window.localStorage.setItem(KEY, JSON.stringify(array));
     dispatch(setCart(array));
+    dispatch(setTotalPrice(getTotalPrice(array)));
   };
 
   // check method that product has in cart
@@ -55,8 +63,25 @@ const useCart = () => {
     ]);
   };
 
+  // change count in cart
+  const changeCount = (id: string, count) => {
+    setToStorage([
+      ...getProductsFromStorage().map((e) => {
+        if (e.id === id) {
+          return {
+            ...e,
+            count,
+          };
+        }
+
+        return e;
+      }),
+    ]);
+  };
+
   const setProductsFromStorage = useCallback(() => {
     dispatch(setCart(getProductsFromStorage()));
+    dispatch(setTotalPrice(getTotalPrice(getProductsFromStorage())));
   }, [dispatch]);
 
   useEffect(() => {
@@ -65,8 +90,10 @@ const useCart = () => {
 
   return {
     cart,
+    totalPrice,
     addProduct,
     removeProduct,
+    changeCount,
     getProductsFromStorage,
   };
 };

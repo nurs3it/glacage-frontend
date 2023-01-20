@@ -5,14 +5,18 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cart: [] as ResponseData<ProductInCart>[],
+    totalPrice: 0,
   },
   reducers: {
     setCart: (state, action: PayloadAction<ResponseData<ProductInCart>[]>) => {
       state.cart = action.payload;
     },
+    setTotalPrice: (state, action: PayloadAction<number>) => {
+      state.totalPrice = action.payload;
+    },
   },
 });
 
-export const { setCart } = cartSlice.actions;
+export const { setCart, setTotalPrice } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -41,7 +41,7 @@ export interface Product extends Dates {
   price: number;
   count: number;
   description: string;
-  images: ArrayResponse<PhotoBody[]>;
+  images: ArrayResponse<PhotoBody[]> | Response<PhotoBody[]>;
   category: Response<ResponseData<Category>>;
 }
 

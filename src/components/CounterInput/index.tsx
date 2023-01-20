@@ -1,11 +1,20 @@
+import { FC } from "react";
+
 import Counter from "react-counter-input";
 
 import classes from "./index.module.css";
 
-const CounterInput = () => {
+import { Props } from "components/CounterInput/types";
+
+const CounterInput: FC<Props> = ({ count, onChangeCount }) => {
   return (
     <div className={classes.root}>
-      <Counter min={0} max={10} onCountChange={(count) => console.log(count)} />
+      <Counter
+        count={count}
+        min={1}
+        max={100}
+        onCountChange={(count) => onChangeCount(count)}
+      />
     </div>
   );
 };

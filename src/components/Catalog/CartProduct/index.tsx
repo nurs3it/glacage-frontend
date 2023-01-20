@@ -1,41 +1,56 @@
 import classes from "./index.module.css";
-
-import Cake from "assets/image/cake.png";
 import Close from "assets/svg/closeSilver.svg";
 
 import { IconButton, Typography } from "@mui/material";
 
-import IIcon from "components/UI/IIcon";
-
 import { FC } from "react";
 
 import { Props } from "components/Catalog/CartProduct/types";
-import CounterInput from "components/CounterInput";
 
-const CartProduct: FC<Props> = ({ isLast = false }) => {
+import CounterInput from "components/CounterInput";
+import ProgressiveImage from "components/UI/ProgressiveImage";
+import IIcon from "components/UI/IIcon";
+
+import { useCart } from "hooks/useCart";
+
+const CartProduct: FC<Props> = ({ product, id, count, isLast = false }) => {
+  const { removeProduct, changeCount, totalPrice } = useCart();
+
   return (
     <>
       <div className={`${classes.root} ${!isLast && classes.isLast}`}>
         <div className={classes.imageWrapper}>
-          <img className={classes.image} src={Cake} alt="cake" />
+          {product && product.images && product.images.data[0] && (
+            <ProgressiveImage
+              className={classes.image}
+              image={product.images.data[0]}
+            />
+          )}
         </div>
         <div className={classes.content}>
-          <IconButton size="small" className={classes.delete}>
+          <IconButton
+            size="small"
+            className={classes.delete}
+            onClick={() => removeProduct(id)}
+          >
             <IIcon icon={Close} />
           </IconButton>
           <div className={classes.info}>
             <Typography className={classes.title} variant="h6">
-              Ягодный чизкейк
+              {product?.name || ""}
             </Typography>
             <Typography className={classes.subtitle} variant="subtitle2">
-              Муссовое пирожное
+              {product?.description || ""}
             </Typography>
           </div>
           <div className={classes.action}>
             <Typography className={classes.price} variant="h6">
-              0000₸
+              {product?.price || 0}₸
             </Typography>
-            <CounterInput />
+            <CounterInput
+              count={count}
+              onChangeCount={(count) => changeCount(id, count)}
+            />
           </div>
         </div>
       </div>
@@ -44,7 +59,7 @@ const CartProduct: FC<Props> = ({ isLast = false }) => {
         <div className={classes.allPrice}>
           <Typography variant="h6">ИТОГО</Typography>
           <Typography className={classes.price} variant="h6">
-            0000₸
+            {totalPrice}₸
           </Typography>
         </div>
       )}

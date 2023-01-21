@@ -34,6 +34,11 @@ const MenuContent: FC<Props> = ({ onClose }) => {
     onClose();
   };
 
+  const goToCatalog = () => {
+    navigate("/catalog");
+    onClose();
+  };
+
   return (
     <Grid container className={classes.root} flexDirection="row">
       <Grid className={classes.close} item>
@@ -44,7 +49,7 @@ const MenuContent: FC<Props> = ({ onClose }) => {
 
       <IList>
         <Item onClick={goToBasket} icon={Cart} text="Корзина" />
-        <Item icon={Carousel} text="Каталог" />
+        <Item onClick={goToCatalog} icon={Carousel} text="Каталог" />
       </IList>
 
       <IList title="Интересно">

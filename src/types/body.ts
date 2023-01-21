@@ -43,6 +43,7 @@ export interface Product extends Dates {
   description: string;
   images: ArrayResponse<PhotoBody[]> | Response<PhotoBody[]>;
   category: Response<ResponseData<Category>>;
+  weight: number;
 }
 
 export interface ProductInCart extends Product {

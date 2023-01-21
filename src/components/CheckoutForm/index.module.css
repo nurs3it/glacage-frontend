@@ -1,0 +1,53 @@
+.form {
+  margin-top: 32px;
+}
+
+.fieldGroup {
+  display: flex;
+  width: 100%;
+}
+
+.action {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.fieldItem {
+  padding: 8px 16px;
+}
+
+.input {
+  background: #fffbf5;
+  border-radius: 16px !important;
+  border: 1px solid transparent;
+}
+
+.input input {
+  border-radius: 16px !important;
+  border: 1px solid transparent;
+  color: rgba(99, 99, 99, 1) !important;
+}
+
+.deliveryTypes {
+  width: 100%;
+  background: rgba(255, 251, 245, 1);
+  border-radius: 12px;
+  display: flex;
+}
+
+.activeDeliveryType {
+  background: #63142c;
+  color: white;
+}
+
+.deliveryType {
+  transition: 0.2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 8px 16px;
+  width: 50%;
+}

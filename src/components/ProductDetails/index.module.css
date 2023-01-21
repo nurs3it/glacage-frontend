@@ -47,9 +47,11 @@
   background: #e7edff !important;
   font-size: 16px !important;
   margin-bottom: 16px;
+  margin-top: 8px;
 }
 
 .description {
+  margin: 0;
 }
 
 .price {

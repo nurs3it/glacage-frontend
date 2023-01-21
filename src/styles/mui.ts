@@ -51,6 +51,20 @@ const theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiInputBase-root": {
+            borderRadius: "16px !important",
+          },
+          "& input": {
+            borderRadius: "16px !important",
+          },
+          border: "none",
+          borderRadius: "16px !important",
+        },
+      },
+    },
   },
 });
 

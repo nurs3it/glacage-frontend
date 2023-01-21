@@ -7,7 +7,6 @@ import AboutPhoto from "assets/image/about.png";
 import { useRequest } from "ahooks";
 
 import { getAbout } from "api/about";
-import { BASE_URL } from "src/api";
 
 import { useEffect, useState } from "react";
 
@@ -24,8 +23,7 @@ const About = () => {
   const parseData = (data: AboutBody) => {
     setData(data as AboutBody);
     setAboutImage(
-      `${BASE_URL}${data.background.data.attributes.formats.thumbnail.url}` ||
-        AboutPhoto
+      `${data.background.data.attributes.formats.thumbnail.url}` || AboutPhoto
     );
   };
 

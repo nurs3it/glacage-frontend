@@ -4,14 +4,12 @@ import Image from "react-progressive-graceful-image";
 
 import { Props } from "components/UI/ProgressiveImage/types";
 
-import { BASE_URL } from "src/api";
-
 const ProgressiveImage: FC<Props> = ({ image, className }) => {
   return (
     <Image
       threshold={[1]}
-      src={`${BASE_URL}${image.attributes.formats.medium.url}`}
-      placeholder={`${BASE_URL}${image.attributes.formats.thumbnail.url}`}
+      src={`${image.attributes.formats.medium.url}`}
+      placeholder={`${image.attributes.formats.thumbnail.url}`}
     >
       {(src) => (
         <img

@@ -13,6 +13,7 @@ const CatalogPage = lazy(() => import("pages/catalog"));
 const CatalogDetailsPage = lazy(() => import("pages/catalog/details"));
 const ProductPage = lazy(() => import("pages/product"));
 const BasketPage = lazy(() => import("pages/basket"));
+const CheckoutPage = lazy(() => import("pages/checkout"));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ export const App = () => {
       <Route path="/product" element={<Navigate to="/catalog" />} />
       <Route path="/product/:id" element={<ProductPage />} />
       <Route path="/basket" element={<BasketPage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
     </Routes>
   );
 };

@@ -10,13 +10,12 @@ import { useCart } from "hooks/useCart";
 import Carousel from "components/Carousel";
 import IIcon from "components/UI/IIcon";
 import IButton from "components/UI/IButton";
+import ReactMarkdown from "react-markdown";
 
 import { Chip, IconButton, Skeleton, Typography } from "@mui/material";
 
 import Close from "assets/svg/close.svg";
 import Shop from "assets/svg/shoppingCartWhite.svg";
-
-import { BASE_URL } from "src/api";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -30,7 +29,7 @@ const ProductDetails = () => {
   const carouselImages = useMemo(() => {
     return (
       product.attributes?.images?.data?.map(
-        (p) => `${BASE_URL}${p.attributes.formats.thumbnail.url}`
+        (p) => `${p.attributes.formats.medium.url}`
       ) || []
     );
   }, [product]);
@@ -67,11 +66,10 @@ const ProductDetails = () => {
         <Typography className={classes.title} variant="h6">
           {product.attributes?.name || ""}
         </Typography>
-        <Typography className={classes.subtitle} variant="subtitle1">
-          {product.attributes?.description || ""}
-        </Typography>
         <Typography className={classes.count} variant="subtitle1">
-          1000гр.
+          {product.attributes?.weight
+            ? `${product.attributes?.weight}гр.`
+            : " "}
         </Typography>
         <Chip
           size="small"
@@ -79,7 +77,7 @@ const ProductDetails = () => {
           label={`В наличии ${product.attributes?.count || 0}шт.`}
         />
         <Typography className={classes.description} variant="body2">
-          {product.attributes?.description || ""}
+          <ReactMarkdown>{product.attributes?.description || ""}</ReactMarkdown>
         </Typography>
         <Typography className={classes.price} variant="h6">
           {product.attributes?.price || 0}₸
@@ -119,9 +117,6 @@ export const ProductDetailsSkeleton = () => {
       <div className={`${classes.info} ${mobile && classes.fullWidth}`}>
         <Skeleton width="50%">
           <Typography variant="h6">.</Typography>
-        </Skeleton>
-        <Skeleton width="30%">
-          <Typography variant="subtitle2">.</Typography>
         </Skeleton>
         <Skeleton width="20%">
           <Typography variant="subtitle2">.</Typography>

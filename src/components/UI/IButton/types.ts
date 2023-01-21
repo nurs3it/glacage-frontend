@@ -19,4 +19,5 @@ export interface ButtonProps {
   loading?: boolean;
   className?: string;
   onClick?: () => void;
+  type?: "submit" | "reset" | "button";
 }

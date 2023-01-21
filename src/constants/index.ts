@@ -20,3 +20,14 @@ export const Menu = [
     link: "payment",
   },
 ];
+
+export const DeliveryTypes = [
+  {
+    type: "PICKUP",
+    label: "Самовывоз",
+  },
+  {
+    type: "DELIVERY",
+    label: "Доставка",
+  },
+];

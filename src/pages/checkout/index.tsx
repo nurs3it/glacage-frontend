@@ -1,27 +1,31 @@
 import AppLayout from "layouts/app";
 import IContainer from "layouts/container";
 
+import { useBreakpoints } from "hooks/useBreakpoints";
+
 import { Typography } from "@mui/material";
 
 import classes from "./index.module.css";
 
-import Catalog from "components/Catalog";
-import { useBreakpoints } from "hooks/useBreakpoints";
+import CheckoutForm from "components/CheckoutForm";
 
-const CatalogPage = () => {
+const TITLE = "Оформление заказа";
+
+const CheckoutPage = () => {
   const { mobile } = useBreakpoints();
+
   return (
-    <AppLayout pageTitle={mobile && "Каталог"}>
+    <AppLayout pageTitle={TITLE}>
       <IContainer>
         {!mobile && (
           <Typography className={classes.title} variant="h4">
-            Каталог
+            {TITLE}
           </Typography>
         )}
-        <Catalog />
+        <CheckoutForm />
       </IContainer>
     </AppLayout>
   );
 };
 
-export default CatalogPage;
+export default CheckoutPage;

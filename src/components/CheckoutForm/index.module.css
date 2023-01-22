@@ -90,3 +90,9 @@
   align-items: center;
   flex-direction: column;
 }
+
+.closeButton {
+  position: fixed !important;
+  top: 8px;
+  right: 8px;
+}

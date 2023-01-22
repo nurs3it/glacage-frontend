@@ -49,6 +49,14 @@ const theme = createTheme({
         root: {
           fontFamily,
         },
+        colorSecondary: {
+          color: "#63142C",
+          background: "#FFFBF5",
+          "&:hover": {
+            background: "#63142C",
+            color: "#FFFBF5",
+          },
+        },
       },
     },
     MuiTextField: {

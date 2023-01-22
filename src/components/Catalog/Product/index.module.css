@@ -42,6 +42,28 @@
   color: #636363;
 }
 
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  display: -webkit-box;
+  line-clamp: 1;
+  box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
 .subtitle {
   color: #636363;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  display: -webkit-box;
+  line-clamp: 1;
+  box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }

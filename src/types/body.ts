@@ -36,6 +36,16 @@ export interface AboutBody extends Dates {
   background: Response<PhotoBody>;
 }
 
+export interface TimeForOrder extends Dates {
+  startTim: Date;
+  endTime: Date;
+}
+
+export interface Address extends Dates {
+  address: string;
+  mapUrl?: string;
+}
+
 export interface Product extends Dates {
   name: string;
   price: number;

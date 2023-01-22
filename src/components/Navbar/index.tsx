@@ -6,12 +6,13 @@ import ArrowLeft from "assets/svg/arrowLeft.svg";
 
 import { Menu } from "src/constants";
 
-import { Grid, IconButton, Typography, Skeleton } from "@mui/material";
+import { Grid, IconButton, Typography, Skeleton, Badge } from "@mui/material";
 
 import { useNavigate } from "react-router";
 import { useBreakpoints } from "hooks/useBreakpoints";
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
+import { useCart } from "hooks/useCart";
 
 import IIcon from "components/UI/IIcon";
 import BurgerMenu from "components/BurgerMenu";
@@ -24,6 +25,7 @@ const Navbar: FC<Props> = ({ pageTitle = "" }) => {
   const { pathname } = useLocation();
 
   const { desktop, mobile } = useBreakpoints();
+  const { cart } = useCart();
 
   const goBack = () => navigate(-1);
 
@@ -98,7 +100,13 @@ const Navbar: FC<Props> = ({ pageTitle = "" }) => {
       )}
       <Grid item alignItems="center">
         <IconButton onClick={goToBasket}>
-          <IIcon icon={Cart} />
+          <Badge
+            color="primary"
+            variant="dot"
+            invisible={!(cart && cart.length > 0)}
+          >
+            <IIcon icon={Cart} />
+          </Badge>
         </IconButton>
         {!desktop && <BurgerMenu />}
       </Grid>

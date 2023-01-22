@@ -63,20 +63,28 @@ const useCart = () => {
     ]);
   };
 
+  const resetCart = () => {
+    setToStorage([]);
+  };
+
   // change count in cart
   const changeCount = (id: string, count) => {
-    setToStorage([
-      ...getProductsFromStorage().map((e) => {
-        if (e.id === id) {
-          return {
-            ...e,
-            count,
-          };
-        }
+    if (count === 0) {
+      removeProduct(id);
+    } else {
+      setToStorage([
+        ...getProductsFromStorage().map((e) => {
+          if (e.id === id) {
+            return {
+              ...e,
+              count,
+            };
+          }
 
-        return e;
-      }),
-    ]);
+          return e;
+        }),
+      ]);
+    }
   };
 
   const setProductsFromStorage = useCallback(() => {
@@ -92,6 +100,7 @@ const useCart = () => {
     cart,
     totalPrice,
     addProduct,
+    resetCart,
     removeProduct,
     changeCount,
     getProductsFromStorage,

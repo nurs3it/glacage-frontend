@@ -12,14 +12,20 @@ import ProgressiveImage from "components/UI/ProgressiveImage";
 import IIcon from "components/UI/IIcon";
 
 import { useCart } from "hooks/useCart";
+import { useNavigate } from "react-router";
 
 const CartProduct: FC<Props> = ({ product, id, count, isLast = false }) => {
+  const navigate = useNavigate();
   const { removeProduct, changeCount, totalPrice } = useCart();
+
+  const goToProduct = () => {
+    navigate(`/product/${id}`);
+  };
 
   return (
     <>
       <div className={`${classes.root} ${!isLast && classes.isLast}`}>
-        <div className={classes.imageWrapper}>
+        <div className={classes.imageWrapper} onClick={goToProduct}>
           {product && product.images && product.images.data[0] && (
             <ProgressiveImage
               className={classes.image}

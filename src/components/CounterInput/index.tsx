@@ -11,7 +11,7 @@ const CounterInput: FC<Props> = ({ count, onChangeCount }) => {
     <div className={classes.root}>
       <Counter
         count={count}
-        min={1}
+        min={0}
         max={100}
         onCountChange={(count) => onChangeCount(count)}
       />

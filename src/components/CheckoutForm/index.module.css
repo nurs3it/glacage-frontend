@@ -1,5 +1,5 @@
 .form {
-  margin-top: 32px;
+  margin: 32px 0;
 }
 
 .fieldGroup {
@@ -39,10 +39,11 @@
 
 .activeDeliveryType {
   background: #63142c;
-  color: white;
+  color: white !important;
 }
 
 .deliveryType {
+  color: rgba(99, 20, 44, 1);
   transition: 0.2s linear;
   display: flex;
   justify-content: center;
@@ -50,4 +51,42 @@
   border-radius: 12px;
   padding: 8px 16px;
   width: 50%;
+}
+
+.selectIcon {
+  margin: 0 8px;
+}
+
+.times {
+  overflow-x: scroll;
+}
+
+.dateHelperText {
+  display: flex;
+  align-items: center;
+  color: rgba(99, 20, 44, 1) !important;
+}
+
+.dateHelperText svg {
+  margin-right: 8px;
+}
+
+.padding {
+  padding: 0 16px;
+}
+
+.loader {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(99, 20, 44, 1);
+  color: rgba(255, 255, 255, 1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

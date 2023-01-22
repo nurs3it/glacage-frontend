@@ -20,6 +20,8 @@ const BasketPage = () => {
 
   const goToCatalog = () => navigate("/catalog");
 
+  const doOrder = () => navigate("/checkout");
+
   const cartIsEmpty = cart && cart.length === 0;
 
   return (
@@ -56,7 +58,11 @@ const BasketPage = () => {
         )}
         {!cartIsEmpty && (
           <div className={classes.action}>
-            <IButton className={classes.button} fullWidth={mobile}>
+            <IButton
+              onClick={doOrder}
+              className={classes.button}
+              fullWidth={mobile}
+            >
               Отправить заказ
             </IButton>
           </div>

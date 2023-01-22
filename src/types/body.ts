@@ -65,6 +65,7 @@ export interface ContactsBody extends Dates {
   instagram: string;
   facebook: string;
   twitter: string;
+  telegram: string;
 }
 
 export interface FormatData {

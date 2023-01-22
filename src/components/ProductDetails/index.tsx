@@ -25,6 +25,7 @@ const ProductDetails = () => {
   const { product, loading } = useProduct(id);
 
   const [hasProductInCart, setHasProductInCart] = useState<boolean>(false);
+  const [loadingButton, setLoadingButton] = useState<boolean>(false);
 
   const carouselImages = useMemo(() => {
     return (
@@ -39,7 +40,12 @@ const ProductDetails = () => {
   };
 
   const addToCart = () => {
+    setLoadingButton(true);
     addProduct(product);
+
+    setTimeout(() => {
+      setLoadingButton(false);
+    }, 1000);
   };
 
   const goToCart = () => {
@@ -82,12 +88,13 @@ const ProductDetails = () => {
         <Typography className={classes.price} variant="h6">
           {product.attributes?.price || 0}₸
         </Typography>
-        {!hasProductInCart ? (
+        {!hasProductInCart || loadingButton ? (
           <IButton
             onClick={addToCart}
             className={classes.button}
             fullWidth={mobile}
             startIcon={<IIcon icon={Shop} />}
+            loading={loadingButton}
           >
             Добавить в корзину
           </IButton>

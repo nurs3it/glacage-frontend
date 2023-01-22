@@ -8,6 +8,7 @@ const useContacts = () => {
     instagram: contacts.instagram,
     facebook: contacts.facebook,
     twitter: contacts.twitter,
+    telegram: contacts.telegram,
   };
 };
 

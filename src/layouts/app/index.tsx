@@ -18,9 +18,11 @@ const AppLayout: FC<Props> = ({ children, pageTitle = "" }) => {
 
   return (
     <>
-      <IContainer className={classes.sticky}>
-        <Navbar pageTitle={pageTitle} />
-      </IContainer>
+      <div className={classes.sticky}>
+        <IContainer>
+          <Navbar pageTitle={pageTitle} />
+        </IContainer>
+      </div>
       {children}
       {(pathname === "/" || !mobile) && <Footer />}
     </>

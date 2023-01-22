@@ -13,22 +13,28 @@ import { useNavigate } from "react-router";
 import { useCart } from "hooks/useCart";
 
 import { FC, useEffect, useState } from "react";
+import ILoading from "components/UI/ILoading";
 
 const Product: FC<Props> = ({ product, id }) => {
   const navigate = useNavigate();
   const { cart, addProduct } = useCart();
 
   const [hasProductInCart, setHasProductInCart] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
 
   const handleClickToProduct = () => {
     navigate(`/product/${id}`);
   };
 
   const addToCart = () => {
+    setLoading(true);
     addProduct({
       id,
       stock: product,
     });
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -59,6 +65,11 @@ const Product: FC<Props> = ({ product, id }) => {
           {!hasProductInCart && (
             <IconButton onClick={addToCart} size="small">
               <IIcon icon={Add} />
+            </IconButton>
+          )}
+          {loading && hasProductInCart && (
+            <IconButton onClick={addToCart} size="small">
+              <ILoading dark />
             </IconButton>
           )}
         </div>

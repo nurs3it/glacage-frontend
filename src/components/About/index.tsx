@@ -5,10 +5,10 @@ import { Grid, Skeleton, Typography } from "@mui/material";
 import AboutPhoto from "assets/image/about.png";
 
 import { useRequest } from "ahooks";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 
 import { getAbout } from "api/about";
-
-import { useEffect, useState } from "react";
 
 import { AboutBody } from "types/body";
 
@@ -16,7 +16,10 @@ import ReactMarkdown from "react-markdown";
 
 import ProgressiveImage from "components/UI/ProgressiveImage";
 
+import { setAbout } from "store/about.store";
+
 const About = () => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({} as AboutBody);
   const [aboutImage, setAboutImage] = useState("");
 
@@ -31,6 +34,7 @@ const About = () => {
     manual: true,
     onSuccess: (result) => {
       parseData(result.data.data.attributes);
+      dispatch(setAbout(result.data.data.attributes));
     },
   });
 

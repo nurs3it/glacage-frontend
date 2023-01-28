@@ -6,7 +6,7 @@
 }
 
 .phoneFabButton {
-  position: fixed;
-  bottom: 5vh;
-  right: 5vw;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
 }

@@ -32,6 +32,8 @@ export interface Dates {
 
 export interface AboutBody extends Dates {
   about: string;
+  delivery: string;
+  payment: string;
   buttonText: string;
   background: Response<PhotoBody>;
 }

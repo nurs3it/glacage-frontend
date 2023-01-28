@@ -55,7 +55,7 @@ const Product: FC<Props> = ({ product, id }) => {
             {product.name}
           </Typography>
           <Typography className={classes.subtitle} variant="subtitle1">
-            {product.description}
+            {product.shortDescription || " "}
           </Typography>
         </div>
         <div className={classes.action}>

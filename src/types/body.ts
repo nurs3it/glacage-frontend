@@ -56,6 +56,8 @@ export interface Product extends Dates {
   images: ArrayResponse<PhotoBody[]> | Response<PhotoBody[]>;
   category: Response<ResponseData<Category>>;
   weight: number;
+  shortDescription: string;
+  composition: string;
 }
 
 export interface ProductInCart extends Product {
@@ -95,6 +97,7 @@ export interface PhotoBody {
 
 export interface Category extends Dates {
   name: string;
+  shortDescription: string;
   show: boolean;
   description: string;
   price: number;

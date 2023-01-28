@@ -1,0 +1,14 @@
+.root {
+}
+
+.title {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #63142c;
+}
+
+.opened {
+  transform: rotate(180deg);
+}

@@ -16,6 +16,7 @@ import { Chip, IconButton, Skeleton, Typography } from "@mui/material";
 
 import Close from "assets/svg/close.svg";
 import Shop from "assets/svg/shoppingCartWhite.svg";
+import ICollapse from "components/UI/ICollapse";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -83,7 +84,9 @@ const ProductDetails = () => {
           label={`В наличии ${product.attributes?.count || 0}шт.`}
         />
         <Typography className={classes.description} variant="body2">
-          <ReactMarkdown>{product.attributes?.description || ""}</ReactMarkdown>
+          <ReactMarkdown>
+            {product.attributes?.shortDescription || ""}
+          </ReactMarkdown>
         </Typography>
         <Typography className={classes.price} variant="h6">
           {product.attributes?.price || 0}₸
@@ -108,6 +111,16 @@ const ProductDetails = () => {
             Перейти в корзину
           </IButton>
         )}
+        <div className={classes.information}>
+          <ICollapse
+            title="Описание"
+            value={product.attributes?.description || ""}
+          />
+          <ICollapse
+            title="Состав"
+            value={product.attributes?.composition || ""}
+          />
+        </div>
       </div>
     </div>
   );

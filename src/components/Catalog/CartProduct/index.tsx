@@ -46,7 +46,7 @@ const CartProduct: FC<Props> = ({ product, id, count, isLast = false }) => {
               {product?.name || ""}
             </Typography>
             <Typography className={classes.subtitle} variant="subtitle2">
-              {product?.description || ""}
+              {product?.shortDescription || ""}
             </Typography>
           </div>
           <div className={classes.action}>

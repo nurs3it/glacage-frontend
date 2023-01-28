@@ -7,6 +7,10 @@
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.06);
   border-radius: 12px;
   padding: 8px;
+  min-height: 260px;
+  height: 25vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .imageWrapper {
@@ -35,6 +39,7 @@
   padding: 8px 0 0 8px;
   display: flex;
   justify-content: space-between;
+  margin-top: auto;
 }
 
 .price {

@@ -2,6 +2,14 @@ export const openWhatsApp = (phone: string) => {
   window.open(`https://wa.me/${phone.replace(/[^0-9]/gi, "")}`, "_blank");
 };
 
+export const openTelegram = (url: string, accName?: string) => {
+  window.open(url || `https://t.me/${accName}`, `_blank`);
+};
+
+export const openTelephone = (number: number) => {
+  window.open(`tel:${number}`, `_blank`);
+};
+
 export const openLink = (link: string) => {
   window.open(link, "_blink");
 };

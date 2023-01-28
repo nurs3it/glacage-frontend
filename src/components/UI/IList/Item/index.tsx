@@ -16,16 +16,16 @@ import classes from "./index.module.css";
 
 import Arrow from "assets/svg/arrowRight.svg";
 
-const Item: FC<Props> = ({ icon, text, onClick, secondIcon }) => {
+const Item: FC<Props> = ({ icon, iconSize, text, onClick, secondIcon }) => {
   return (
     <ListItem className={classes.root} disablePadding>
       <ListItemButton className={classes.button} onClick={onClick}>
         <ListItemIcon className={classes.icon}>
-          <IIcon icon={icon} />
+          <IIcon size={iconSize} icon={icon} />
         </ListItemIcon>
         {secondIcon && (
           <ListItemIcon className={classes.icon}>
-            <IIcon icon={secondIcon} />
+            <IIcon size={iconSize} icon={secondIcon} />
           </ListItemIcon>
         )}
         <ListItemText className={classes.text} primary={text} />

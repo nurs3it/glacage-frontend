@@ -3,4 +3,5 @@ export interface Props {
   text: string;
   secondIcon?: string;
   onClick?: () => void;
+  iconSize?: number;
 }

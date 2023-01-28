@@ -11,5 +11,5 @@ export const getProductsByCategoryId = (
 export const getProductById = (
   id: string
 ): Promise<AxiosResponse<Response<Product>>> => {
-  return api.get(`/api/products/${id}?populate=*`);
+  return api.get(`/api/products/${id}?populate=*&pagination[pageSize]=`);
 };

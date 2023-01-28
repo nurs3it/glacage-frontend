@@ -2,9 +2,13 @@ import classes from "./index.module.css";
 
 import BannerPhoto from "assets/image/banner.png";
 import Logo from "assets/svg/bigLogo.svg";
+
 import { Typography } from "@mui/material";
 
+import { useAboutInfo } from "hooks/useAboutInfo";
+
 const Banner = () => {
+  const { about } = useAboutInfo();
   return (
     <div
       className={classes.root}
@@ -17,9 +21,7 @@ const Banner = () => {
         alt="big logo"
       />
       <Typography className={classes.description} variant="body1">
-        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-        sint. Velit officia consequat duis enim velit mollit. Exercitation
-        veniam consequat sunt nostrud amet.
+        {about.title || ""}
       </Typography>
     </div>
   );

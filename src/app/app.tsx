@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 
 import { getContacts } from "api/contacts";
 import { setContacts } from "store/about.store";
-import { useAboutInfo } from "hooks/useAboutInfo";
 
 const MainPage = lazy(() => import("pages/main"));
 const CatalogPage = lazy(() => import("pages/catalog"));
@@ -18,8 +17,6 @@ const CheckoutPage = lazy(() => import("pages/checkout"));
 
 export const App = () => {
   const dispatch = useDispatch();
-
-  const {} = useAboutInfo({ stopAutoLoad: false });
 
   const parseData = (data) => {
     dispatch(setContacts(data));

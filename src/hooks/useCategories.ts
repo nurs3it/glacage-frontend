@@ -4,18 +4,23 @@ import { useCallback, useEffect } from "react";
 
 import { getCategories } from "api/categories";
 
-import { setCategories } from "store/categories.store";
+import { setCategories, setCategoriesMeta } from "store/categories.store";
 
 const useCategories = (autoLoad: boolean) => {
   const dispatch = useDispatch();
-  const { categories } = useSelector((state) => state["categories"]);
+
+  const { categories, categoriesMeta } = useSelector(
+    (state) => state["categories"]
+  );
 
   const parseData = (data) => dispatch(setCategories(data));
+  const parseMetaData = (data) => dispatch(setCategoriesMeta(data));
 
   const { runAsync, loading, error } = useRequest(getCategories, {
     manual: true,
     onSuccess: (data) => {
       parseData(data.data.data);
+      parseMetaData(data.data.meta);
     },
   });
 
@@ -31,6 +36,7 @@ const useCategories = (autoLoad: boolean) => {
 
   return {
     categories,
+    categoriesMeta,
     loading,
     error,
   };

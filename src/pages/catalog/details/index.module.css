@@ -3,3 +3,7 @@
   text-align: center;
   padding: 12px 24px;
 }
+
+.padding {
+  margin: 32px auto;
+}

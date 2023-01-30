@@ -1,19 +1,19 @@
 import { useForm } from "react-hook-form";
-import { useEffect, useState, forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 import classes from "./index.module.css";
 
 import {
-  Grid,
-  TextField,
-  MenuItem,
-  InputLabel,
-  IconButton,
-  Stack,
   Chip,
   FormHelperText,
-  Typography,
+  Grid,
+  IconButton,
+  InputLabel,
+  MenuItem,
   OutlinedInput,
+  Stack,
+  TextField,
+  Typography,
 } from "@mui/material";
 
 import IButton from "components/UI/IButton";
@@ -22,7 +22,6 @@ import ILoading from "components/UI/ILoading";
 import { IMaskInput } from "react-imask";
 
 import Location from "assets/svg/location.svg";
-import Map from "assets/svg/map.svg";
 import Information from "assets/svg/informationFilled.svg";
 import Checkmark from "assets/svg/checkmarkFilled.svg";
 import Close from "assets/svg/closeWhite.svg";
@@ -271,11 +270,13 @@ const CheckoutForm = () => {
                     })}
                     InputProps={{
                       startAdornment: (
-                        <IIcon
-                          size={24}
-                          className={classes.selectIcon}
-                          icon={Location}
-                        />
+                        <IconButton>
+                          <IIcon
+                            size={24}
+                            className={classes.selectIcon}
+                            icon={Location}
+                          />
+                        </IconButton>
                       ),
                     }}
                   >
@@ -304,11 +305,6 @@ const CheckoutForm = () => {
                       startAdornment: (
                         <IconButton>
                           <IIcon icon={Location} />
-                        </IconButton>
-                      ),
-                      endAdornment: (
-                        <IconButton>
-                          <IIcon icon={Map} />
                         </IconButton>
                       ),
                     }}

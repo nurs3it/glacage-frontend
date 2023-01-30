@@ -37,15 +37,19 @@ const BasketPage = () => {
             <CartProduct
               product={p.stock || p.attributes}
               id={p.id}
-              key={i}
+              key={p.id}
               count={p.count}
               isLast={a.length === i + 1}
             />
           ))}
         {cartIsEmpty && (
           <div className={classes.empty}>
-            <Typography align="center" className={classes.title} variant="h4">
-              Корзина пуста ¯\(°_o)/¯
+            <Typography
+              align="center"
+              className={classes.title}
+              variant="body2"
+            >
+              Корзина пуста
             </Typography>
             <IButton
               className={classes.button}

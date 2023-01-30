@@ -27,11 +27,19 @@ const DetailsPage = () => {
       <IContainer>
         {!mobile &&
           (category?.data?.attributes?.name ? (
-            <Typography className={classes.title} variant="h4">
+            <Typography
+              className={`${classes.title} ${classes.padding}`}
+              variant="h4"
+            >
               {category?.data?.attributes?.name || ""}
             </Typography>
           ) : (
-            <Skeleton animation="wave" sx={{ margin: "0 auto" }} width="40%">
+            <Skeleton
+              className={classes.padding}
+              animation="wave"
+              sx={{ margin: "0 auto" }}
+              width="40%"
+            >
               <Typography variant="h3">.</Typography>
             </Skeleton>
           ))}

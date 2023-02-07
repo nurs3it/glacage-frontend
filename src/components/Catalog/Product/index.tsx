@@ -14,12 +14,17 @@ import { useCart } from "hooks/useCart";
 
 import { FC, useEffect, useState } from "react";
 import ILoading from "components/UI/ILoading";
+import CounterInput from "components/CounterInput";
+import { ProductInCart } from "types/body";
 
 const Product: FC<Props> = ({ product, id }) => {
   const navigate = useNavigate();
-  const { cart, addProduct } = useCart();
+  const { cart, addProduct, changeCount } = useCart();
 
   const [hasProductInCart, setHasProductInCart] = useState<boolean>(false);
+  const [productInCart, setProductInCart] = useState<ProductInCart>(
+    {} as ProductInCart
+  );
   const [loading, setLoading] = useState(false);
 
   const handleClickToProduct = () => {
@@ -38,7 +43,14 @@ const Product: FC<Props> = ({ product, id }) => {
   };
 
   useEffect(() => {
-    setHasProductInCart(cart.some((e) => e.id === Number(id)));
+    setHasProductInCart(
+      cart.some((e) => {
+        if (e.id === Number(id)) {
+          setProductInCart(e);
+        }
+        return e.id === Number(id);
+      })
+    );
   }, [cart, id]);
 
   return (
@@ -72,6 +84,16 @@ const Product: FC<Props> = ({ product, id }) => {
               <ILoading dark />
             </IconButton>
           )}
+          {!loading &&
+            hasProductInCart &&
+            productInCart &&
+            productInCart.count && (
+              <CounterInput
+                isMini
+                count={productInCart?.count || 0}
+                onChangeCount={(count) => changeCount(id, count)}
+              />
+            )}
         </div>
       </div>
     </Grid>

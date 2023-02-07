@@ -6,9 +6,9 @@ import classes from "./index.module.css";
 
 import { Props } from "components/CounterInput/types";
 
-const CounterInput: FC<Props> = ({ count, onChangeCount }) => {
+const CounterInput: FC<Props> = ({ count, onChangeCount, isMini }) => {
   return (
-    <div className={classes.root}>
+    <div className={`${isMini ? classes.mini : classes.root}`}>
       <Counter
         count={count}
         min={0}

@@ -104,3 +104,7 @@ export interface Category extends Dates {
   background: Response<PhotoBody>;
   images?: ArrayResponse<PhotoBody>;
 }
+
+export interface WhatsAppMessageResponse {
+  idMessage: string;
+}

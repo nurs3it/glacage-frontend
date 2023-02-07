@@ -37,7 +37,8 @@ import { useNavigate } from "react-router";
 
 import { createOrder } from "api/order";
 
-import { getTodayString } from "src/utils";
+import { getTodayString, getWhatsAppMessage } from "src/utils";
+import { sendMessageToWhatsApp } from "api/greenapi";
 
 const CheckoutForm = () => {
   const navigate = useNavigate();
@@ -54,6 +55,10 @@ const CheckoutForm = () => {
   const { times } = useTimesForOrder();
   const { mobile } = useBreakpoints();
   const { totalPrice, cart, resetCart } = useCart();
+
+  const sendMessageService = useRequest(sendMessageToWhatsApp, {
+    manual: true,
+  });
 
   const createOrderService = useRequest(createOrder, {
     onBefore: () => {
@@ -84,7 +89,10 @@ const CheckoutForm = () => {
     };
 
     createOrderService.runAsync({ data: totalCheckout }).then((r) => {
-      console.log(r);
+      sendMessageService.run(
+        "77000950600",
+        getWhatsAppMessage(values, totalPrice, r.data.data.id, cart)
+      );
     });
   };
 

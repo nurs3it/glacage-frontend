@@ -20,3 +20,27 @@ export const getTodayString = () => {
     today.getMonth() + 1
   }-${today.getDate()}`;
 };
+
+export const getWhatsAppMessage = (values, totalPrice, id, cart) => {
+  return `*НОВЫЙ ЗАКАЗ 🔥*
+ 
+☎️ _Номер телефона_: ${values.phone || ""}
+😇 _Имя получателя_: ${values.firstname} ${values.secondname || ""}
+ 
+🏠 _Адресс получателя_: ${values.address || ""}
+🗓 _Дата заказа_: ${values.date || ""}
+⏰ _На время_: ${values.time || ""}
+ 
+📦 _Вид заказа_: ${values.deliveryType == "PICKUP" ? "Самовывоз" : "Доставка"}
+ 
+📪 _Почта получателя_: ${values.email || ""}
+📝 _Комментарий к заказу_: ${values.comment || ""}
+ 
+🧁 _Список продуктов_:\n${cart
+    .map((p, i) => i + 1 + ". " + p.stock.name + " - " + p.count)
+    .join("\n")}
+ 
+Пройдите по ссылке чтобы посмотреть детали заказа: https://glacage.onrender.com/admin/content-manager/collectionType/api::zakazy.zakazy/${id}
+ 
+Итоговая сумма *${totalPrice}*`;
+};

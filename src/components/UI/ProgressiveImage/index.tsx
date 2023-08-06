@@ -8,7 +8,10 @@ const ProgressiveImage: FC<Props> = ({ image, className }) => {
   return (
     <Image
       threshold={[1]}
-      src={`${image.attributes.formats.medium.url}`}
+      src={`${
+        image.attributes.formats.medium?.url ||
+        image.attributes.formats.small?.url
+      }`}
       placeholder={`${image.attributes.formats.thumbnail.url}`}
     >
       {(src) => (

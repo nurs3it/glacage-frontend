@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "https://glacage.onrender.com";
+export const BASE_URL = "https://api.glacage.kz";
 export const GREEN_API_URL = "https://api.green-api.com";
 export const idInstance = "1101790977";
 export const apiTokenInstance =
